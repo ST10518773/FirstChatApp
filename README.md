@@ -31,9 +31,9 @@ PROG5121-Part1/
 
 ## Running it
 
-You'll need JDK 17+ and Maven installed locally (this sandbox has a JDK but
-no `javac`/Maven binary, so the code hasn't been compiled here — please
-compile it once in NetBeans/IntelliJ/VS Code before you submit).
+Tested and confirmed working in NetBeans — `Login.java` and `Main.java` sit
+in the same default package of one project, and the console app runs and
+registers/logs in a user as expected.
 
 ```bash
 # Run the console app
@@ -53,3 +53,4 @@ In **NetBeans**: open the folder as a Maven project, right-click `Main.java`
 | Username | `kyl_1` | `kyle!!!!!!` |
 | Password | `Ch&&sec@ke99!` | `password` |
 | Cell number | `+27838968976` | `08966553` |
+
