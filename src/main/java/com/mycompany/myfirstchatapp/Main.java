@@ -79,5 +79,9 @@ public class Main {
         System.out.println("\nApplication finished.");
         scanner.close();
         
+        
+        System.out.println("\nApplication finished.");
+        scanner.close();
+        
     }
 }
