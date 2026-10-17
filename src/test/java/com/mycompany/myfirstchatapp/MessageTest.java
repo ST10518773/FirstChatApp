@@ -11,7 +11,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * MessageTest.java
- * PROG5121 - PoE Part 2: Sending Messages
  *
  * Unit tests for the Message class, using the test data from the brief.
  */
