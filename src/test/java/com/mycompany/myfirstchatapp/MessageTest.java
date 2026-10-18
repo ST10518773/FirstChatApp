@@ -7,9 +7,9 @@ package com.mycompany.myfirstchatapp;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static o
+/**rg.junit.jupiter.api.Assertions.*;
 
-/**
  * MessageTest.java
  *
  * Unit tests for the Message class, using the test data from the brief.
