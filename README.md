@@ -55,7 +55,7 @@ In **NetBeans**: open the folder as a Maven project, right-click `Main.java`
 | Cell number | `+27838968976` | `08966553` |
 
 
-# PROG5121 PoE — QuickChat (Part 2)
+# PROG5121 PoE — Part 2: QuickChat 
 
 A console-only Java application (no GUI, no `JOptionPane`) built for the
 PROG5121 Programming 1A Portfolio of Evidence.
