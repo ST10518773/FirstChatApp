@@ -110,5 +110,21 @@
     "recipient": "+27718693002",
     "messageText": "See you tomorrow",
     "messageHash": "27:2:SEETOMORROW"
+  },
+  {
+    "messageID": "5524833236",
+    "messageNumber": 1,
+    "sender": "kyl_1",
+    "recipient": "+27838884567",
+    "messageText": "Where are you...on time.",
+    "messageHash": "55:1:WHERETIME"
+  },
+  {
+    "messageID": "7225794988",
+    "messageNumber": 4,
+    "sender": "kyl_1",
+    "recipient": "+27844041002",
+    "messageText": "Ok, I am leaving without you.",
+    "messageHash": "72:4:OKYOU"
   }
 ]
