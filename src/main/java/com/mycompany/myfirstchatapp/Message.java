@@ -1,36 +1,19 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.myfirstchatapp;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.reflect.TypeToken;
-
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.lang.reflect.Type;
-import java.util.ArrayList;
 import java.util.Random;
 
 /**
  * Message.java
- * PROG5121 - PoE Part 2: Sending Messages
+ * PROG5121 - PoE Parts 2 and 3
  *
  * Represents a single QuickChat message. It validates the message ID,
  * recipient cell number and message length, builds the message hash,
  * and handles the send / disregard / store choice.
  *
- * Reference for storing messages in a JSON file:
- * Google. (n.d.). Gson User Guide. GitHub.
- * https://github.com/google/gson/blob/main/UserGuide.md
+ * Part 3: a message now also records its sender, and saving stored
+ * messages to the JSON file is handled by MessageManager (using arrays).
  */
 public class Message {
-
-    private static final String JSON_FILE = "messages.json";
 
     // Running total of messages that have been sent (accumulated across
     // all messages in this run of the application).
@@ -38,16 +21,23 @@ public class Message {
 
     private String messageID;
     private int messageNumber;
+    private String sender;
     private String recipient;
     private String messageText;
     private String messageHash;
 
     public Message(String messageID, int messageNumber,
                    String recipient, String messageText) {
+        this(messageID, messageNumber, recipient, messageText, "Unknown");
+    }
+
+    public Message(String messageID, int messageNumber,
+                   String recipient, String messageText, String sender) {
         this.messageID = messageID;
         this.messageNumber = messageNumber;
         this.recipient = recipient;
         this.messageText = messageText;
+        this.sender = sender;
         this.messageHash = createMessageHash();
     }
 
@@ -150,6 +140,7 @@ public class Message {
     /**
      * Handles what the user chose to do with the message:
      * 1 = Send, 2 = Disregard, 3 = Store to send later.
+     * (Saving a stored message to the JSON file is done by MessageManager.)
      */
     public String sentMessage(int choice) {
         if (choice == 1) {
@@ -158,7 +149,6 @@ public class Message {
         } else if (choice == 2) {
             return "Press 0 to delete the message.";
         } else if (choice == 3) {
-            storeMessage();
             return "Message successfully stored.";
         }
         return "Invalid option selected.";
@@ -187,39 +177,18 @@ public class Message {
         totalMessagesSent = 0;
     }
 
-    /**
-     * Stores this message in messages.json. Any messages already in the
-     * file are kept, and this one is added to the end.
-     */
-    public void storeMessage() {
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        ArrayList<Message> storedMessages = new ArrayList<>();
-
-        File file = new File(JSON_FILE);
-        if (file.exists()) {
-            try (FileReader reader = new FileReader(file)) {
-                Type listType = new TypeToken<ArrayList<Message>>() { }.getType();
-                ArrayList<Message> existing = gson.fromJson(reader, listType);
-                if (existing != null) {
-                    storedMessages = existing;
-                }
-            } catch (IOException e) {
-                System.out.println("Error reading stored messages: " + e.getMessage());
-            }
-        }
-
-        storedMessages.add(this);
-
-        try (FileWriter writer = new FileWriter(JSON_FILE)) {
-            gson.toJson(storedMessages, writer);
-        } catch (IOException e) {
-            System.out.println("Error saving message: " + e.getMessage());
-        }
-    }
-
     // Getters
     public String getMessageID() {
         return messageID;
+    }
+
+    public int getMessageNumber() {
+        return messageNumber;
+    }
+
+    public String getSender() {
+        // Messages saved before Part 3 have no sender
+        return sender == null ? "Unknown" : sender;
     }
 
     public String getMessageHash() {
