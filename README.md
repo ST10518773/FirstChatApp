@@ -155,3 +155,5 @@ git push -u origin Part2-SendingMessages
 
 - Google. (n.d.). *Gson User Guide*. GitHub. https://github.com/google/gson/blob/main/UserGuide.md
 - Oracle. (2024). *Class Pattern*. Oracle Java SE 21 Documentation. https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/regex/Pattern.html
+
+- 
